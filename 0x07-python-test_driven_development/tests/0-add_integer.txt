@@ -1,0 +1,190 @@
+The ``0-add_integer`` module
+============================
+
+Using ``add_integer``
+---------------------
+
+This file is in reStructuredText format.
+First import ``add_integer``from the 0-add_integer module:
+
+	>>> add_integer = __import__('0-add_integer').add_integer
+
+checking for module docstring:
+
+	>>> lengthmodule = __import__("0-add_integer").__doc__
+	>>> len(lengthmodule) > 1
+	True
+
+Checking for function docstring:
+
+	>>> lengthfunction = __import__('0-add_integer').add_integer.__doc__
+	>>> len(lengthfunction) > 1
+	True
+
+Usage:
+
+	>>> add_integer(3, 5)
+	8
+
+Testing positive and negative integer:
+
+	>>> add_integer(3, -9)
+	-6
+
+Testing a as negative integer and b as positive:
+
+	>>> add_integer(-9, 3)
+	-6
+
+Testing b defualt a as the only argument passed:
+
+	>>> add_integer(1)
+	99
+
+Testing zero as argument passed:
+
+	>>> add_integer(0, 0)
+	0
+
+Testing a as zero and only argument passed:
+
+	>>> add_integer(0)
+	98
+
+Testing b as zero and a as non-zero argument:
+
+	>>> add_integer(2, 0)
+	2
+
+Testing both as negative integers:
+
+	>>> add_integer(-9, -9)
+	-18
+
+Testing both as float argument:
+
+	>>> add_integer(2.1, 2.1)
+	4
+
+Testing a as float and b as integer:
+
+	>>> add_integer(2.1, 2)
+	4
+
+Testing a as integer and b as float:
+
+	>>> add_integer(2, 2.1)
+	4
+
+Testing a as only float argument passed:
+
+	>>> add_integer(2.1)
+	100
+
+Testing a as zero and b as float:
+
+	>>> add_integer(0, 2.1)
+	2
+
+Testing a as float and b as zero:
+
+	>>> add_integer(2.1, 0)
+	2
+
+Testing two negative float:
+
+	>>> add_integer(-3.8, -3.5)
+	-6
+
+Testing positive float and negative float:
+
+	>>> add_integer(5.3, -5.6)
+	0
+
+Testing negative against positive float:
+
+	>>> add_integer(-8.2, 2.7)
+	-6
+
+Testing zero float:
+
+	>>> add_integer(0.7, 0.5)
+	0
+
+Testing pass no argument:
+
+	>>> add_integer()
+	Traceback (most recent call last):
+           	...
+	TypeError: add_integer() missing 1 required positional argument: 'a'
+
+Testing None as passed argument:
+
+	>>> add_integer(None)
+	Traceback (most recent call last):
+		...
+	TypeError: a must be an integer
+
+Testing both as None argument:
+
+	>>> add_integer(None, None)
+	Traceback (most recent call last):
+		...
+	TypeError: a must be an integer
+
+Testing both as string:
+
+	>>> add_integer("alice", "odamtten")
+	Traceback (most recent call last):
+		...
+	TypeError: a must be an integer
+
+Testing a as string and b as integer:
+
+	>>> add_integer("alice", 5)
+	Traceback (most recent call last):
+		...
+	TypeError: a must be an integer
+
+Testing a as integer and b as string:
+
+	>>> add_integer(5, "odamtten")
+	Traceback (most recent call last):
+		...
+	TypeError: b must be an integer
+
+Testing passing only one string:
+
+	>>> add_integer("alice")
+	Traceback (most recent call last):
+		...
+	TypeError: a must be an integer
+
+Testing tuple:
+
+	>>> add_integer((4, 6, 7),)
+	Traceback (most recent call last):
+		...
+	TypeError: a must be an integer
+
+Testing list:
+
+	>>> add_integer([4, 5, 7],)
+	Traceback (most recent call last):
+		...
+	TypeError: a must be an integer
+
+Testing a large number:
+
+	>>> try:
+	...     add_integer(float('inf'))
+	... except OverflowError as e:
+	...     str(e)
+	'cannot convert float infinity to integer'
+
+Testing NaN:
+
+	>>> add_integer(float('NaN'),)
+	Traceback (most recent call last):
+		...
+	ValueError: cannot convert float NaN to integer
