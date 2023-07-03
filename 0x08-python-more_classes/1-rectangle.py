@@ -9,8 +9,8 @@ class Rectangle:
         """Initializes a rectangle with width and height
 
         Args:
-        width ; the width of a rectangle
-        height: the height of a rectangle
+        width : the width of a rectangle
+        height : the height of a rectangle
         """
         self.width = width
         self.height = height
@@ -43,7 +43,7 @@ class Rectangle:
         """Sets the height of the rectangle
 
         Args:
-        value: the value of height
+        value : the value of height
         """
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
