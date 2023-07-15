@@ -110,8 +110,10 @@ class Rectangle(Base):
 
     def display(self):
         """ Print the rectangle with the character '#' """
+        for _ in range(self.__y):
+            print()
         for _ in range(self.__height):
-            print("#" * self.__width)
+            print(" " * self.__x + "#" * self.__width)
 
     def __str__(self):
         """ Return a string representation of the rectangle """
@@ -120,3 +122,14 @@ class Rectangle(Base):
                                                        self.__y,
                                                        self.__width,
                                                        self.__height)
+
+    def update(self, *args, **kwargs):
+        """ Update the rectangle attributes """
+        if args:
+            attrs = ["id", "width", "height", "x", "y"]
+            for i in range(len(args)):
+                if i < len(attrs):
+                    setattr(self, attrs[i], args[i])
+        else:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
