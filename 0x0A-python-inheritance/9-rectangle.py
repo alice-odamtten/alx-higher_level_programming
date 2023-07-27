@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Module for the class
+Module for Rectangle
 """
 
 BaseGeometry = __import__("7-base_geometry").BaseGeometry
@@ -8,12 +8,12 @@ BaseGeometry = __import__("7-base_geometry").BaseGeometry
 
 class Rectangle(BaseGeometry):
     """
-    A Rectangle class
+    A Class Rectangle
     """
 
     def __init__(self, width, height):
         """
-        Instantiation of width and height
+        Instantiation with width and height
 
         Args:
             width (int)
@@ -26,13 +26,13 @@ class Rectangle(BaseGeometry):
 
     def area(self):
         """
-        Returns area
+        Returns area of rectangle
         """
         return self.__width * self.__height
 
     def __str__(self):
         """
-        Returns rectangle description
+        Returns the following rectangle description
         """
         return ("[" + type(self).__name__ + "] " + str(self.__width)
                 + "/" + str(self.__height))
