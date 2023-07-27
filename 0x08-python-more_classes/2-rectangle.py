@@ -1,28 +1,49 @@
 #!/usr/bin/python3
-"""A module that defines a Rectangle class"""
+"""
+Module for  a class Rectangle
+"""
 
 
 class Rectangle:
-    """a class that represents a rectangle"""
+    """
+    A Rectangle class
+    """
+
     def __init__(self, width=0, height=0):
-        """Initializes a rectangle with optional width and height
-        Args:
-        width : the width of a rectangle
-        height : the height of a rectangle
         """
-        self.width = width
+        Class initializer
+
+        Args:
+            self : Argument
+            width : Argument
+                (default is 0)
+            height : Argument
+                (default is 0)
+
+        """
         self.height = height
+        self.width = width
 
     @property
     def width(self):
-        """the width of the rectangle"""
+        """
+        Width getter
+
+        Args:
+            self : Argument
+
+        """
         return self.__width
 
     @width.setter
     def width(self, value):
-        """Sets the width of the rectangle
+        """
+        Width setter
+
         Args:
-        value: the value of the width
+            self : Argument
+            value : Argument
+
         """
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
@@ -32,14 +53,24 @@ class Rectangle:
 
     @property
     def height(self):
-        """the height of the rectangle"""
+        """
+        Height getter
+
+        Args:
+            self : Argument
+
+        """
         return self.__height
 
     @height.setter
     def height(self, value):
-        """Sets the height of the rectangle
+        """
+        Height setter
+
         Args:
-        value : the value of the height
+            self : Argument
+            value : Argument
+
         """
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
@@ -48,11 +79,23 @@ class Rectangle:
         self.__height = value
 
     def area(self):
-        """Calculates the area of the rectangle"""
-        return self.__width * self.__height
+        """
+        Returns area
+
+        Args:
+            self : Argument
+
+        """
+        return self.height * self.width
 
     def perimeter(self):
-        """Calculates the perimeter of the rectangle"""
-        if self.__width == 0 or self.__height ==0:
-            return (0)
-        return (self.__width * 2) + (self.__heigh * 2)
+        """
+        Returns perimeter
+
+        Args:
+            self : Argument
+
+        """
+        if self.height == 0 or self.width == 0:
+            return 0
+        return 2 * (self.height + self.width)
