@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Module for the class
+Module for Rectangle
 """
 
 BaseGeometry = __import__("7-base_geometry").BaseGeometry
@@ -8,12 +8,12 @@ BaseGeometry = __import__("7-base_geometry").BaseGeometry
 
 class Rectangle(BaseGeometry):
     """
-    A Rectangle class
+    A Class Rectangle
     """
 
     def __init__(self, width, height):
         """
-        Instantiation of width and height
+        Instantiation with width and height
 
         Args:
             width (int)
