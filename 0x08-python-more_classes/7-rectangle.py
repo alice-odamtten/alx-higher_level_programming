@@ -1,40 +1,51 @@
 #!/usr/bin/python3
 """
-Module to create a class Rectangle
+Module for a class Rectangle
 """
 
 
 class Rectangle:
     """
-    A class that represents a rectangle
+    A Rectangle class
     """
+
     number_of_instances = 0
     print_symbol = "#"
 
     def __init__(self, width=0, height=0):
         """
-        Initializes the class
+        Class initializer
 
         Args:
-            width : the width of the rectangle
-            height : the height of the rectangle
+            self : Argument
+            width : Argument
+                (default is 0)
+            height : Argument
+                (default is 0)
+
         """
         self.height = height
         self.width = width
+        Rectangle.number_of_instances += 1
 
     @property
     def width(self):
         """
-        Width of the rectangle
+        Width getter
+
+        Args:
+            self : Argument
+
         """
         return self.__width
 
     @width.setter
     def width(self, value):
         """
-        Set the width of the rectangle
+        Width setter
 
         Args:
+            self : Argument
             value : Argument
 
         """
@@ -47,16 +58,21 @@ class Rectangle:
     @property
     def height(self):
         """
-        Height of the rectangle
+        Height getter
+
+        Args:
+            self : Argument
+
         """
         return self.__height
 
     @height.setter
     def height(self, value):
         """
-        Set the height of the rectangle
+        Height setter
 
         Args:
+            self : Argument
             value : Argument
 
         """
@@ -68,13 +84,21 @@ class Rectangle:
 
     def area(self):
         """
-        Calculate the area
+        Returns area
+
+        Args:
+            self : Argument
+
         """
         return self.height * self.width
 
     def perimeter(self):
         """
-        Calculate the perimeter
+        Returns perimeter
+
+        Args:
+            self : Argument
+
         """
         if self.height == 0 or self.width == 0:
             return 0
@@ -82,27 +106,39 @@ class Rectangle:
 
     def __str__(self):
         """
-        Prints the character # as string
+        Returns rectangle with print_symbol as string
+
+        Args:
+            self : Argument
+
         """
         if self.height == 0 or self.width == 0:
             return ""
         square = ""
         for i in range(self.height):
             for j in range(self.width):
-                square += "#"
+                square += str(self.print_symbol)
             if i != self.height - 1:
                 square += "\n"
         return square
 
     def __repr__(self):
         """
-        Representation of the rectangle
+        Returns a string representation of the rectangle
+
+        Args:
+            self : Argument
+
         """
         return "Rectangle({}, {})".format(self.__width, self.__height)
 
     def __del__(self):
         """
-        Deletes the rectangle
+        Prints a msg when an instance of Rectangle is deleted
+
+        Args:
+            self : Argument
+
         """
         Rectangle.number_of_instances -= 1
         print("Bye rectangle...")
