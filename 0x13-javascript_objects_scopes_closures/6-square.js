@@ -12,9 +12,7 @@ class Square extends Rquare {
         console.log('c'.repeat(this.width));
       }
     } else {
-      for (let i = 0; i < this.height; i++) {
-        console.log('X'.repeat(this.width));
-      }
+      super.print();
     }
   }
 }
