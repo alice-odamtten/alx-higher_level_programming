@@ -9,7 +9,7 @@ class Square extends Rquare {
   charPrint (c) {
     if (c) {
       for (let i = 0; i < this.height; i++) {
-        console.log('c'.repeat(this.width));
+        console.log(c.repeat(this.width));
       }
     } else {
       super.print();
