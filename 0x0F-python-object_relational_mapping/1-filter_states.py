@@ -19,6 +19,7 @@ if __name__ == "__main__":
             )
     result = cursor.fetchall()
     for i in result:
-        print(i)
+        if i[1][0] == 'N':
+            print(i)
     cursor.close()
     connectionn.close()
