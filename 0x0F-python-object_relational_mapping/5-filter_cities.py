@@ -25,10 +25,10 @@ if __name__ == '__main__':
             c.state_id = s.id WHERE c.state_id = s.id AND s.name LIKE \
             BINARY '{}' ORDER BY c.id ASC".format(argv[4]).strip("'")
         )
-        queryrow = cur.fetchall()
+        queryrow = cursor.fetchall()
         my_set = []
         for i in queryrow:
-            myset.append(i[1])
+            my_set.append(i[1])
         print(", ".join(my_set))
     cursor.close()
     connectionn.close()
