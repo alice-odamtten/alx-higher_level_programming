@@ -16,7 +16,7 @@ localhost:3306/{argv[3]}")
     state_name = argv[4]
     result = session.query(State).filter(State.name.like(state_name)).first()
     if result:
-        print(f"{res.id}")
+        print(f"{result.id}")
     else:
         print("Not found")
     session.close()

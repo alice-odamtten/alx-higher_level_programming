@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-A script that prints the State object with the name passed as argument.
+a script that adds the State object “Louisiana” to the database
 """
 from sqlalchemy import create_engine
 from model_state import Base, State
@@ -13,10 +13,8 @@ if __name__ == "__main__":
 localhost:3306/{argv[3]}")
     Session = sessionmaker(bind=engine)
     session = Session()
-    state_name = argv[4]
-    result = session.query(State).filter(State.name.like(state_name)).first()
-    if result:
-        print(f"{res.id}")
-    else:
-        print("Not found")
+    lstate = State(name="Louisiana")
+    session.add(lstate)
+    session.commit()
+    print(lstate.id)
     session.close()
