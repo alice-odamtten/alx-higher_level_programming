@@ -1,23 +1,20 @@
 #!/usr/bin/python3
+"""a python file that contains the class definition of a State
 """
-a python file that contains the class definition of a State and an instance
-"""
-from sqlalchemy import create_engine, ForeignKey, Column, String, Integer
-from sqlalchemy.orm import declarative_base, relationship
-from model_state import Base
+from sqlalchemy import create_engine, ForeignKey, Column, String, Integer, CHAR
+from sqlalchemy.orm import declarative_base
+
+Base = declarative_base()
 
 
-class City(Base):
+class State(Base):
     """Defines the state class"""
-    __tablename__ = "cities"
+    __tablename__ = "states"
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column('name', String(128))
-    state_id = Column(Integer, ForeignKey('states.id'), nullable=False)
-    state = relationship('State')
 
-    def __init__(self, name, state_id):
+    def __init__(self, name):
         self.name = name
-        self.state_id = state_id
 
     def __repr__(self):
-        return f'{self.state.name}: ({self.id}) {self.name}'
+        return f'{self.id}: {self.name}'
